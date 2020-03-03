@@ -1,0 +1,30 @@
+.topbar .topbar-left {
+	background-color: transparent;
+	float: left;
+	height: 30px;
+}
+.topbar .navigation-menu > li > a {
+	padding: 15px;
+}
+
+.topbar-main {
+	background: transparent;
+	min-height: 40px;
+}
+
+.logo-custom img {
+	width: 160px;
+	padding: 10px;
+}
+
+.form-control {
+	border: 1px solid #0093de;
+}
+
+.bg-cmsbase {
+	background: #203161;
+}
+
+.text-cmsbase {
+	color: #203161;
+}
