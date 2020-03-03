@@ -13,7 +13,9 @@ class GraellaController extends Controller
      */
     public function index()
     {
-        //
+        $canals = Canal::paginate(15);
+
+        return view('canals.index', compact('canals'));
     }
 
     /**

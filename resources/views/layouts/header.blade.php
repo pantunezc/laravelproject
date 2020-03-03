@@ -3,21 +3,20 @@
     <nav class="topbar-main ">
         <div class="topbar-left ">
             <a href="{{route('home')}}" class="logo-custom p-0">
-                    <img src="{{asset('images/starlogo.jpg')}}" alt="{{ config('app.name', 'CMSBase') }}"  >
+                    <img src="{{asset('assets_theme/images/digital.png')}}" alt="{{ config('app.name', 'CMSBase') }}"  >
             </a>
         </div>
                     <ul class="navigation-menu"  id="navigation">
                         <li class="menu-item"><a href="{{route('home')}}"><i class="dripicons-home"></i>  </a></li>
 
                         <li class="has-submenu">
-                            <a href="#">
+                            <a href="{{route('canals.index')}}">
                                 <i class="dripicons-document"></i>
-                                <span>Comercial</span>
+                                <span>Canal</span>
                             </a>
                             <ul class="submenu">
-                                <li class="text-muted  text-center">- Comercial -</li>
-                                <li class="dropdown-divider"></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Clientes</a></li>
+                                <li class="text-muted  text-center">- Canal -</li>
+                                
                                 
                                 
                             </ul><!--end submenu-->

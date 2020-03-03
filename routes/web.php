@@ -24,3 +24,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+//canal
+
+Route::get('canals', 'CanalController@index')->name('canals.index');
+Route::get('canals/create', 'CanalController@create')->name('canals.create');
+Route::post('canals/store', 'CanalController@store')->name('canals.store');
+Route::get('canals/{canal}/edit', 'CanalController@edit')->name('canals.edit');
+Route::put('canals/{canal}', 'CanalController@update')->name('canals.update');
+Route::get('canals/{canal}', 'CanalController@show')->name('canals.show');
+Route::delete('canals/{canal}', 'CanalController@destroy')->name('canals.destroy');
+

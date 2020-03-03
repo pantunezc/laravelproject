@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Canal;
 use Illuminate\Http\Request;
 
 class CanalController extends Controller
@@ -13,7 +13,9 @@ class CanalController extends Controller
      */
     public function index()
     {
-        //
+        $canals = Canal::paginate(5);
+
+        return view('canals.index', compact('canals'));
     }
 
     /**
@@ -23,7 +25,7 @@ class CanalController extends Controller
      */
     public function create()
     {
-        //
+        return view('canals.create');
     }
 
     /**
@@ -34,7 +36,11 @@ class CanalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $canal = Canal::create($request->all());
+
+
+        return redirect()->route('canals.index')
+            ->with('info', 'Canal guardado con éxito');
     }
 
     /**
@@ -43,9 +49,9 @@ class CanalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Canal $canal)
     {
-        //
+        return view('canals.show', compact('canal'));
     }
 
     /**
@@ -54,9 +60,9 @@ class CanalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Canal $canal)
     {
-        //
+        return view('canals.edit', compact('canal'));
     }
 
     /**
@@ -66,9 +72,11 @@ class CanalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Canal $canal)
     {
-        //
+        $canal->update($request->all());
+        return redirect()->route('canals.index',$canal->id)
+        ->with('info','Canal actualizado con éxito');
     }
 
     /**
@@ -77,8 +85,9 @@ class CanalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Canal $canal)
     {
-        //
+        $canal->delete();
+        return back()->with('info','Eliminado correctamente');
     }
 }
