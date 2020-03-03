@@ -18,101 +18,10 @@
                                 <li class="text-muted  text-center">- Comercial -</li>
                                 <li class="dropdown-divider"></li>
                                 <li><a href="#"><i class="dripicons-document"></i>Clientes</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Proveedores</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Ofertas</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Acciones Formativas</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Presupuestos</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Pedidos</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Facturas Cliente</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Facturas Proveedores</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Reuniones</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Previsiones</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Tareas</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Reuniones Internas</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Estrategias</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Cursos</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Tareas SAT</a></li>
-                                <li><a href="#"><i class="dripicons-document"></i>Tareas Comerciales</a></li>
+                                
                                 
                             </ul><!--end submenu-->
                         </li><!--end has-submenu-->
-
-
-
-
-                        <li class="has-submenu">
-                            <a href="#">
-                                <i class="dripicons-document"></i>
-                                <span>Admon</span>
-                            </a>
-                            <ul class="submenu">
-                                <li class="text-muted text-center">- Administración -</li>
-                                <li class="dropdown-divider"></li>
-                            </ul><!--end submenu-->
-                        </li><!--end has-submenu-->
-
-
-
-
-                        <li class="has-submenu">
-                            <a href="#">
-                                <i class="dripicons-document"></i>
-                                <span>Formación</span>
-                            </a>
-                            <ul class="submenu">
-                                <li class="text-muted text-center">- Formación -</li>
-                                <li class="dropdown-divider"></li>
-                                
-                            </ul><!--end submenu-->
-                        </li><!--end has-submenu-->
-
-
-
-
-                        <li class="has-submenu">
-                            <a href="#">
-                                <i class="dripicons-document"></i>
-                                <span>Informes</span>
-                            </a>
-                            <ul class="submenu">
-                                <li class="text-muted text-center">- Informes -</li>
-                                <li class="dropdown-divider"></li>
-                            </ul><!--end submenu-->
-                        </li><!--end has-submenu-->
-
-
-
-
-                        <li class="has-submenu">
-                            <a href="#">
-                                <i class="dripicons-document"></i>
-                                <span>Documentos</span>
-                            </a>
-                            <ul class="submenu">
-                                <li class="text-muted text-center">- Documentos -</li>
-                                <li class="dropdown-divider"></li>
-                            </ul><!--end submenu-->
-                        </li><!--end has-submenu-->
-
-
-
-
-
-
-
-                        <li class="has-submenu">
-                            <a href="#">
-                                <i class="dripicons-jewel"></i>
-                                <span>Mantenimiento</span>
-                            </a>
-                            <ul class="submenu">
-                                <li class="text-muted text-center">- Mantenimiento -</li>
-                                <li class="dropdown-divider"></li>
-                                   
-                            </ul><!--end submenu-->
-                        </li><!--end has-submenu-->
-
-
 
 
                         <li class="has-submenu float-right">  <a href="#">

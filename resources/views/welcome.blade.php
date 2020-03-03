@@ -86,7 +86,7 @@
         @endif
 
         <div class="content">
-            <div class="title m-b-md" style="color: #00CED1">
+            <div class="title m-b-md" style="color: #008080">
                 Digital++
             </div>
 
