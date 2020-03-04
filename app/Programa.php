@@ -11,8 +11,8 @@ class Programa extends Model
         return $this->belongsTo(Canal::class);
     }
 
-    public function graella()
+    public function graellas()
     {
-        return $this->belongsTo(Graella::class);
+        return $this->belongsToMany(Graella::class);
     }
 }

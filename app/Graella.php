@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Graella extends Model
 {
-    public function programes()
+    public function programas()
     {
-        return $this->hasMany(Programa::class);
+        return $this->belongsToMany(Programa::class);
     }
 }

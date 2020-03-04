@@ -16,7 +16,6 @@ class CreateProgramasTable extends Migration
         Schema::create('programas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('canal_id')->unsigned();
-            $table->bigInteger('graella_id')->unsigned();
             $table->string('descropcio');
             $table->string('tipus');
             $table->string('classificacio');
@@ -26,9 +25,7 @@ class CreateProgramasTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('graella_id')->references('id')->on('graellas')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            
         });
     }
 
