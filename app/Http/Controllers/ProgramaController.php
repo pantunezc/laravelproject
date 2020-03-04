@@ -27,9 +27,9 @@ class ProgramaController extends Controller
      */
     public function create()
     {
-        $graellas = Graella::all()->pluck('nombre','id');
+        
         $canals = Canal::all()->pluck('nombre','id');
-        return view('programes.create', compact('graellas', 'canals'));
+        return view('programes.create', compact('canals'));
     }
 
     /**
@@ -66,9 +66,9 @@ class ProgramaController extends Controller
      */
     public function edit(Programa $programa)
     {
-        $graellas = Graella::all()->pluck('nombre','id');
+       
         $canals = Canal::all()->pluck('nombre','id');
-        return view('programes.edit', compact('programa','graellas','canals'));
+        return view('programes.edit', compact('programa','canals'));
     }
 
     /**
