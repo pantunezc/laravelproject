@@ -16,9 +16,16 @@
                             </a>
                             <ul class="submenu">
                                 <li class="text-muted  text-center">- Canal -</li>
-                                
-                                
-                                
+                            </ul><!--end submenu-->
+                        </li><!--end has-submenu-->
+
+                        <li class="has-submenu">
+                            <a href="{{route('programes.index')}}">
+                                <i class="dripicons-document"></i>
+                                <span>Programa</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="text-muted  text-center">- Programa -</li>                                
                             </ul><!--end submenu-->
                         </li><!--end has-submenu-->
 
@@ -30,6 +37,8 @@
                                     <li><a  href="{{ route('logout') }}"><i class="dripicons-exit text-muted mr-2"></i> Cerrar sesión</a></li>
                             </ul><!--end submenu-->
                         </li><!--end has-submenu-->
+
+                        
 
 
                     </ul><!-- End navigation menu -->

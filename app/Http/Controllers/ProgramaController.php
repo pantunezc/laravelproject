@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Programa;
+use App\Graella;
+use App\Canal;
 use Illuminate\Http\Request;
 
 class ProgramaController extends Controller
@@ -13,7 +15,9 @@ class ProgramaController extends Controller
      */
     public function index()
     {
-        //
+        $programes = Programa::paginate();
+
+        return view('programes.index', compact('programes'));
     }
 
     /**
@@ -23,7 +27,9 @@ class ProgramaController extends Controller
      */
     public function create()
     {
-        //
+        $graellas = Graella::all()->pluck('nombre','id');
+        $canals = Canal::all()->pluck('nombre','id');
+        return view('programes.create', compact('graellas', 'canals'));
     }
 
     /**
@@ -34,7 +40,11 @@ class ProgramaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $programa = Programa::create($request->all());
+
+
+        return redirect()->route('programes.index')
+            ->with('info', 'Cliente guardado con éxito');
     }
 
     /**
@@ -43,9 +53,9 @@ class ProgramaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Programa $programa)
     {
-        //
+        return view('programes.show', compact('programa'));
     }
 
     /**
@@ -54,9 +64,11 @@ class ProgramaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Programa $programa)
     {
-        //
+        $graellas = Graella::all()->pluck('nombre','id');
+        $canals = Canal::all()->pluck('nombre','id');
+        return view('programes.edit', compact('programa','graellas','canals'));
     }
 
     /**
@@ -66,9 +78,11 @@ class ProgramaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Programa $programa)
     {
-        //
+        $programa->update($request->all());
+        return redirect()->route('programes.edit',$programa->id)
+        ->with('info','Cliente actualizado con éxito');
     }
 
     /**
@@ -77,8 +91,9 @@ class ProgramaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Programa $programa)
     {
-        //
+        $programa->delete();
+        return back()->with('info','Eliminado correctamente');
     }
 }

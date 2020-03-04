@@ -35,3 +35,12 @@ Route::put('canals/{canal}', 'CanalController@update')->name('canals.update');
 Route::get('canals/{canal}', 'CanalController@show')->name('canals.show');
 Route::delete('canals/{canal}', 'CanalController@destroy')->name('canals.destroy');
 
+//programa
+
+Route::get('programes', 'ProgramaController@index')->name('programes.index');
+Route::get('programes/create', 'ProgramaController@create')->name('programes.create');
+Route::post('programes/store', 'ProgramaController@store')->name('programes.store');
+Route::get('programes/{programa}/edit', 'ProgramaController@edit')->name('programes.edit');
+Route::put('programes/{programa}', 'ProgramaController@update')->name('programes.update');
+Route::get('programes/{programa}', 'ProgramaController@show')->name('programes.show');
+Route::delete('programes/{programa}', 'ProgramaController@destroy')->name('programes.destroy');
