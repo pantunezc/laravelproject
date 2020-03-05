@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Programa;
 use App\Graella;
 use App\Canal;
+use App\GraellaPrograma;
 use Illuminate\Http\Request;
 
 class GraellaController extends Controller
@@ -15,8 +16,9 @@ class GraellaController extends Controller
      */
     public function index()
     {
+        $programas = Programa::all()->pluck('nom','id');
         $graelles = Graella::paginate();
-        return view('graelles.index', compact('graelles'));
+        return view('graelles.index', compact('graelles','programas'));
     }
 
     /**
@@ -26,6 +28,7 @@ class GraellaController extends Controller
      */
     public function create()
     {
+        
         $programas = Programa::all()->pluck('nom','id');
         $canals = Canal::all()->pluck('nom','id');
         return view('graelles.create', compact('canals','programas'));
@@ -38,15 +41,13 @@ class GraellaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-       
-        
+    {       
         $graella = new Graella;     
         $graella->dia=$request->input('dia');
         $graella->hora=$request->input('hora');
-        $graella->programa_id=$request->input('programa_id');
         $graella->save();
-
+        $graella->programas()->attach($request->programas);
+        
         return redirect()->route('graelles.index')
             ->with('info', 'Graella guardada con éxito');
     }

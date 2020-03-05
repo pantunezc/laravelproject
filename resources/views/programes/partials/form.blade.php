@@ -20,8 +20,8 @@
         {{Form::label('tipus','Tipus Programa:')}}
         {{Form::select('tipus',['Comedia' => 'Comedia', 'Entreteniment' => 'Entreteniment', 'Documental'=> 'Documental', 'Esports'=> 'Esports', 'Informatius'=> 'Informatius'],
          null,['placeholder'=>'Seleccionar un Tipus','class'=>'form-control'])}}
-        
-        
+
+
     </div>
     <div class="col-lg-3">
         {{Form::label('classificacio','Classificació Programa:')}}

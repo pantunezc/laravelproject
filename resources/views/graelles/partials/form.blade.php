@@ -5,7 +5,7 @@
     </div>
     <div class="col-lg-4">
         {{Form::label('programa_id','Programa:')}}
-        {{Form::select('programa_id',$programas, null,['placeholder'=>'Seleccionar un Programa','class'=>'form-control'])}}
+        {{Form::select('programas',$programas, null,['placeholder'=>'Seleccionar un Programa','class'=>'form-control'])}}
     </div>
 </div>
 

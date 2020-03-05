@@ -42,8 +42,10 @@
                             @foreach($graelles as $graella)
                             <tr class="table-tr" data-url="{{ route('graelles.show', $graella->id) }}">
                                 <td>{{ $graella->id }}</td>
-                                <td>{{ $graella->programa_id}}</td>
-                                <td></td>
+                                <td>{{$programas}}</td>
+                                <td>@foreach($graella->programas as $programa )
+                                        {{ $programa }}
+                                    @endforeach</td>
                                 <td>{{ $graella->dia }}</td>
                                 <td>{{ $graella->hora }}</td>
 
