@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Programa;
+use App\Graella;
+use App\Canal;
 use Illuminate\Http\Request;
 
 class GraellaController extends Controller
@@ -13,9 +15,8 @@ class GraellaController extends Controller
      */
     public function index()
     {
-        $canals = Canal::paginate(15);
-
-        return view('canals.index', compact('canals'));
+        $graelles = Graella::paginate();
+        return view('graelles.index', compact('graelles'));
     }
 
     /**
@@ -25,7 +26,9 @@ class GraellaController extends Controller
      */
     public function create()
     {
-        //
+        $programas = Programa::all()->pluck('nom','id');
+        $canals = Canal::all()->pluck('nom','id');
+        return view('graelles.create', compact('canals','programas'));
     }
 
     /**
@@ -36,7 +39,16 @@ class GraellaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        
+        $graella = new Graella;     
+        $graella->dia=$request->input('dia');
+        $graella->hora=$request->input('hora');
+        $graella->programa_id=$request->input('programa_id');
+        $graella->save();
+
+        return redirect()->route('graelles.index')
+            ->with('info', 'Graella guardada con éxito');
     }
 
     /**
@@ -45,9 +57,10 @@ class GraellaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Graella $graella)
     {
-        //
+        $canal= Canal::all()->pluck('nom','id');
+        return view('graelles.show', compact('graella','canal'));
     }
 
     /**
@@ -56,9 +69,10 @@ class GraellaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Graella $graella)
     {
-        //
+        $canals = Canal::all()->pluck('nom','id');
+        return view('graelles.edit', compact('graella','canals'));
     }
 
     /**
@@ -68,9 +82,14 @@ class GraellaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Graella $graella)
     {
-        //
+        $graella = Graella::findOrFail($graella->id);
+        $graella->nom=$request->nom;
+        
+
+        return redirect()->route('graelles.edit',$graella->id)
+        ->with('info','Graella actualizada con éxito');
     }
 
     /**
@@ -79,8 +98,9 @@ class GraellaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Graella $graella)
     {
-        //
+        $graella->delete();
+        return back()->with('info','Eliminado correctamente');
     }
 }

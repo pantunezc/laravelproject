@@ -14,9 +14,7 @@
                                 <i class="dripicons-document"></i>
                                 <span>Canal</span>
                             </a>
-                            <ul class="submenu">
-                                <li class="text-muted  text-center">- Canal -</li>
-                            </ul><!--end submenu-->
+                            
                         </li><!--end has-submenu-->
 
                         <li class="has-submenu">
@@ -24,9 +22,15 @@
                                 <i class="dripicons-document"></i>
                                 <span>Programa</span>
                             </a>
-                            <ul class="submenu">
-                                <li class="text-muted  text-center">- Programa -</li>                                
-                            </ul><!--end submenu-->
+                            
+                        </li><!--end has-submenu-->
+
+                        <li class="has-submenu">
+                            <a href="{{route('graelles.index')}}">
+                                <i class="dripicons-document"></i>
+                                <span>Graella</span>
+                            </a>
+                            
                         </li><!--end has-submenu-->
 
 

@@ -15,7 +15,7 @@ class CreateGraellasTable extends Migration
     {
         Schema::create('graellas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('hora');
+            $table->time('hora');
             $table->date('dia');
         });
     }
