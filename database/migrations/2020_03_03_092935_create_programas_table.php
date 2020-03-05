@@ -16,7 +16,7 @@ class CreateProgramasTable extends Migration
         Schema::create('programas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('canal_id')->unsigned();
-            $table->string('descropcio');
+            $table->string('descripcio');
             $table->string('tipus');
             $table->string('classificacio');
             $table->string('nom');

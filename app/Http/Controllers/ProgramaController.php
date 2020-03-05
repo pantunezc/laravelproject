@@ -16,7 +16,6 @@ class ProgramaController extends Controller
     public function index()
     {
         $programes = Programa::paginate();
-
         return view('programes.index', compact('programes'));
     }
 
@@ -28,7 +27,7 @@ class ProgramaController extends Controller
     public function create()
     {
         
-        $canals = Canal::all()->pluck('nombre','id');
+        $canals = Canal::all()->pluck('nom','id');
         return view('programes.create', compact('canals'));
     }
 
@@ -40,11 +39,17 @@ class ProgramaController extends Controller
      */
     public function store(Request $request)
     {
-        $programa = Programa::create($request->all());
-
+        $programa = new Programa;
+        $programa->nom=$request->input('nom');
+        $programa->descripcio=$request->input('descripcio');
+        $programa->tipus=$request->input('tipus');
+        $programa->classificacio=$request->input('classificacio');
+        $programa->canal_id=$request->input('canal_id');
+        
+        $programa->save();
 
         return redirect()->route('programes.index')
-            ->with('info', 'Cliente guardado con éxito');
+            ->with('info', 'Programa guardado con éxito');
     }
 
     /**
@@ -55,7 +60,8 @@ class ProgramaController extends Controller
      */
     public function show(Programa $programa)
     {
-        return view('programes.show', compact('programa'));
+        $canal= Canal::all()->pluck('nom','id');
+        return view('programes.show', compact('programa','canal'));
     }
 
     /**
@@ -67,7 +73,7 @@ class ProgramaController extends Controller
     public function edit(Programa $programa)
     {
        
-        $canals = Canal::all()->pluck('nombre','id');
+        $canals = Canal::all()->pluck('nom','id');
         return view('programes.edit', compact('programa','canals'));
     }
 
@@ -80,9 +86,16 @@ class ProgramaController extends Controller
      */
     public function update(Request $request, Programa $programa)
     {
-        $programa->update($request->all());
+        $programa = Programa::findOrFail($programa->id);
+        $programa->nom=$request->nom;
+        $programa->descripcio=$request->descripcio;
+        $programa->tipus=$request->input('tipus');
+        $programa->classificacio=$request->classificacio;
+        $programa->canal_id=$request->canal_id;
+        $programa->update();
+
         return redirect()->route('programes.edit',$programa->id)
-        ->with('info','Cliente actualizado con éxito');
+        ->with('info','Programa actualizado con éxito');
     }
 
     /**

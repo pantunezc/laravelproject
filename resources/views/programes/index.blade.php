@@ -35,6 +35,7 @@
                                 <th>Canal</td>
                                 <th>Descripio</th>
                                 <th>Classificacio</th>
+                                <th>Tipus</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,10 +43,10 @@
                             <tr class="table-tr" data-url="{{ route('programes.show', $programa->id) }}">
                                 <td>{{ $programa->id }}</td>
                                 <td>{{ $programa->nom }}</td>
-                                <td>{{ $canal->nom  }}</td>
-                                <td>{{ $programa->descropcio }}</td>
+                                <td>{{$programa->canal->nom}}</td>
+                                <td>{{ $programa->descripcio }}</td>
                                 <td>{{ $programa->classificacio }}</td>
-                                
+                                <td>{{ $programa->tipus }}</td>
                                 <td width="70px">
                                     <a href="{{route('programes.edit',$programa->id)}}">
                                         <button class="btn btn-sm btn-primary ">Editar<i

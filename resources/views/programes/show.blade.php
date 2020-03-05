@@ -9,6 +9,10 @@
                 <div class="card-body">
                     <p><b>Id: </b>{{$programa->id}}</p>
                     <p><b>Nom: </b>{{$programa->nom}}</p>
+                    <p><b>Descripció: </b>{{$programa->descripcio}}</p>
+                    <p><b>Tipus: </b>{{$programa->tipus}}</p>
+                    <p><b>Classificació: </b>{{$programa->classificacio}}</p>
+                    <p><b>Canal: </b>{{$programa->canal->nom}}</p>
                 </div>
             </div>
         </div>
