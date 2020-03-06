@@ -15,4 +15,16 @@ class Graella extends Model
     {
         return $this->belongsToMany(Programa::class);
     }
+
+    public function scopeDia($query,$dia){
+        if ($dia){
+            return $query->where('dia','like',"%$dia");
+        }
+    }
+
+    public function scopeHora($query,$hora){
+        if ($hora){
+            return $query->where('hora','like',"$hora%");
+        }
+    }
 }

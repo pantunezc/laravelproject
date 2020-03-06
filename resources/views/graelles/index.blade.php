@@ -16,8 +16,10 @@
                 </div>
                 @endif
 
+                
+
                 <div class="card-header">
-                    <h3>Canals
+                    <h3>Graella
                         <a href="{{ route('graelles.create')}}" class="btn btn-success float-right">
                             Crear
                         </a>
@@ -27,6 +29,14 @@
                 </div>
 
                 <div class="card-body">
+                    <nav class="navbar navbar-light float-right">
+                        <form class="form-inline">
+                          <input name="dia" class="form-control mr-sm-2" type="search" placeholder="Buscar Per dia" aria-label="Search">
+                          <input name="hora" class="form-control mr-sm-2" type="search" placeholder="Buscar Per hora" aria-label="Search">
+                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                      </nav>
+                    
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -42,9 +52,11 @@
                             @foreach($graelles as $graella)
                             <tr class="table-tr" data-url="{{ route('graelles.show', $graella->id) }}">
                                 <td>{{ $graella->id }}</td>
-                                <td>{{$programas}}</td>
                                 <td>@foreach($graella->programas as $programa )
-                                        {{ $programa }}
+                                    {{ $programa->canal->nom }}
+                                @endforeach</td>
+                                <td>@foreach($graella->programas as $programa )
+                                        {{ $programa->nom }}
                                     @endforeach</td>
                                 <td>{{ $graella->dia }}</td>
                                 <td>{{ $graella->hora }}</td>

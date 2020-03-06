@@ -17,7 +17,7 @@
                 @endif
 
                 <div class="card-header">
-                    <h3>Canals
+                    <h3>Programes
                         <a href="{{ route('programes.create')}}" class="btn btn-success float-right">
                             Crear
                         </a>

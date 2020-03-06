@@ -9,7 +9,9 @@
                 <div class="card-body">
                     <p><b>Id: </b>{{$canal->id}}</p>
                     <p><b>Nom: </b>{{$canal->nom}}</p>
+                    <a href="{{route('canals.index')}}" class="btn btn-primary"> Tornar <i class="fas fa-sign-out-alt"></i></a>
                 </div>
+            
             </div>
         </div>
     </div>

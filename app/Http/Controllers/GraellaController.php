@@ -14,10 +14,12 @@ class GraellaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $dia = $request ->get('dia');
+        $hora = $request ->get('hora');
         $programas = Programa::all()->pluck('nom','id');
-        $graelles = Graella::paginate();
+        $graelles = Graella::dia($dia)->hora($hora)->paginate(5);
         return view('graelles.index', compact('graelles','programas'));
     }
 
@@ -28,7 +30,6 @@ class GraellaController extends Controller
      */
     public function create()
     {
-        
         $programas = Programa::all()->pluck('nom','id');
         $canals = Canal::all()->pluck('nom','id');
         return view('graelles.create', compact('canals','programas'));
@@ -47,7 +48,6 @@ class GraellaController extends Controller
         $graella->hora=$request->input('hora');
         $graella->save();
         $graella->programas()->attach($request->programas);
-        
         return redirect()->route('graelles.index')
             ->with('info', 'Graella guardada con éxito');
     }
@@ -60,8 +60,8 @@ class GraellaController extends Controller
      */
     public function show(Graella $graella)
     {
-        $canal= Canal::all()->pluck('nom','id');
-        return view('graelles.show', compact('graella','canal'));
+        $programas= Programa::all()->pluck('nom','id');
+        return view('graelles.show', compact('graella','programas'));
     }
 
     /**
@@ -72,8 +72,9 @@ class GraellaController extends Controller
      */
     public function edit(Graella $graella)
     {
+        $programas = Programa::all()->pluck('nom','id');
         $canals = Canal::all()->pluck('nom','id');
-        return view('graelles.edit', compact('graella','canals'));
+        return view('graelles.edit', compact('graella','canals','programas'));
     }
 
     /**
@@ -86,9 +87,10 @@ class GraellaController extends Controller
     public function update(Request $request,Graella $graella)
     {
         $graella = Graella::findOrFail($graella->id);
-        $graella->nom=$request->nom;
-        
-
+        $graella->dia=$request->input('dia');
+        $graella->hora=$request->input('hora');
+        $graella->save();
+        $graella->programas()->sync($request->programas);
         return redirect()->route('graelles.edit',$graella->id)
         ->with('info','Graella actualizada con éxito');
     }

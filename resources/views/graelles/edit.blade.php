@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md">
             <div class="card">
                 @if (session('info'))
                 <div class="pt-4">
@@ -15,12 +15,12 @@
                     </div>
                 </div>
                 @endif
-                <div class="card-header"> Programa </div>
+                <div class="card-header"> Graella </div>
                 <div class="card-body">
-                    {!!Form::model($programa,['route'=>['programes.update',$programa->id],
+                    {!!Form::model($graella,['route'=>['graelles.update',$graella->id],
                     'method'=> 'PUT']) !!}
 
-                    @include('programes.partials.form')
+                    @include('graelles.partials.form')
 
                     {!!Form::close()!!}
                 </div>
