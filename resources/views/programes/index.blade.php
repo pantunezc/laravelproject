@@ -18,7 +18,7 @@
 
                 <div class="card-header">
                     <h3>Programes
-                        <a href="{{ route('programes.create')}}" class="btn btn-success float-right">
+                    @role('admin')<a href="{{ route('programes.create')}}" class="btn btn-success float-right">@endrole
                             Crear
                         </a>
                     </h3>
@@ -48,18 +48,18 @@
                                 <td>{{ $programa->classificacio }}</td>
                                 <td>{{ $programa->tipus }}</td>
                                 <td width="70px">
-                                    <a href="{{route('programes.edit',$programa->id)}}">
+                                @role('admin')<a href="{{route('programes.edit',$programa->id)}}">
                                         <button class="btn btn-sm btn-primary ">Editar<i
                                                 class="ml-2 fas fa-pen"></i></button>
-                                    </a>
+                                    </a>@endrole
                                 </td>
-                                <td width="90px">
+                                @role('admin')<td width="90px">
                                     {!!Form::open(['route' =>['programes.destroy', $programa->id],
                                     'method'=> 'DELETE'])!!}
                                     <button class="btn btn-sm btn-danger ">Eliminar<i
                                             class="ml-2 fas fa-trash"></i></button>
                                     {!!Form::close()!!}
-                                </td>
+                                </td>@endrole
                             </tr>
 
                             @endforeach

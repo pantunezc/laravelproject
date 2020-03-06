@@ -18,7 +18,7 @@
 
                 <div class="card-header">
                     <h3>Canals
-                        <a href="{{ route('canals.create')}}" class="btn btn-success float-right">
+                    @role('admin')<a href="{{ route('canals.create')}}" class="btn btn-success float-right">@endrole
                             Crear
                         </a>
                     </h3>
@@ -40,18 +40,18 @@
                                 <td>{{ $canal->id }}</td>
                                 <td>{{ $canal->nom }}</td>
                                 <td width="70px">
-                                    <a href="{{route('canals.edit',$canal->id)}}">
+                                @role('admin')<a href="{{route('canals.edit',$canal->id)}}">
                                         <button class="btn btn-sm btn-primary ">Editar<i
                                                 class="ml-2 fas fa-pen"></i></button>
-                                    </a>
+                                    </a>@endrole
                                 </td>
-                                <td width="90px">
+                                @role('admin')<td width="90px">
                                     {!!Form::open(['route' =>['canals.destroy', $canal->id],
                                     'method'=> 'DELETE'])!!}
                                     <button class="btn btn-sm btn-danger ">Eliminar<i
                                             class="ml-2 fas fa-trash"></i></button>
                                     {!!Form::close()!!}
-                                </td>
+                                </td>@endrole
                             </tr>
 
                             @endforeach
