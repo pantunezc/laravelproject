@@ -75,10 +75,12 @@
                                     {!!Form::close()!!}
                                 </td>@endrole
                             </tr>
-
+                                    
                             @endforeach
                         </tbody>
                     </table>
+                    <a class="btn btn-success" href="{{ route('graella.pdf') }}">Exportar a PDF<i class="ml-2 mdi mdi-file-pdf"></i></a>
+                    <a class="btn btn-outline-dark" href="{{ route('graella.excel') }}">Exportar a Excel<i class="ml-2 far fa-file-excel"></i></a>
                     <div class="float-right">
                         {{ $graelles->render() }}
                     </div>

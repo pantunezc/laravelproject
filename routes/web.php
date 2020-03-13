@@ -53,4 +53,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('graelles/{graella}', 'GraellaController@show')->name('graelles.show');
     Route::delete('graelles/{graella}', 'GraellaController@destroy')->name('graelles.destroy')->middleware('role:admin');
 
+    //pdf
+
+    Route::get('/graella/pdf','GraellaController@exportpdf')->name('graella.pdf');
+
+    //excel
+
+    Route::get('/graella/excel','GraellaController@exportExcel')->name('graella.excel');
+    
 });

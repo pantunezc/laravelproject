@@ -6,6 +6,9 @@ use App\Graella;
 use App\Canal;
 use App\GraellaPrograma;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\GraellaExport;
 
 class GraellaController extends Controller
 {
@@ -106,4 +109,16 @@ class GraellaController extends Controller
         $graella->delete();
         return back()->with('info','Eliminado correctamente');
     }
+
+    public function exportpdf()
+    {
+        $graelles=Graella::get();
+        $pdf = PDF::loadview('graelles.pdf', compact('graelles'));
+        return $pdf->download('graella.pdf');
+  }
+
+  public function exportExcel()
+    {
+        return Excel::download(new GraellaExport, 'graella.xlsx');
+  }
 }

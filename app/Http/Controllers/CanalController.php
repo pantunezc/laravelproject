@@ -38,7 +38,6 @@ class CanalController extends Controller
     {
         $canal = Canal::create($request->all());
 
-
         return redirect()->route('canals.index')
             ->with('info', 'Canal guardado con éxito');
     }

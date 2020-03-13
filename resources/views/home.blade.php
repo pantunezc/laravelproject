@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    <a href="{{route('canals.index')}}">a</a>
                    Benvingut {{ Auth::user()->name }}
                 </div>
             </div>
